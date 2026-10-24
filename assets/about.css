@@ -1,0 +1,51 @@
+        @import url('melodrama.css');
+
+        body {
+            font-family: Melodrama-Medium;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+            background-color: wheat;
+            color: #0f172a;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a, #334155);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .icon-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-section {
+            background: #0f172a;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        /* footer */
+        .fot {
+            background-color: #0f172a;
+        }

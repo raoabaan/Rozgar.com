@@ -1,0 +1,408 @@
+@import url('melodrama.css');
+
+body {
+    font-family: Melodrama-Medium;
+    background-color: wheat;
+}
+
+.bn1024 button {
+    display: none;
+}
+
+.slider1024 {
+    display: none;
+}
+
+.footer .copyright {
+    color: white;
+}
+
+.sli {
+    background-color: #0f172a;
+    color: wheat;
+}
+
+.nav {
+    background-color: wheat;
+}
+
+/* .lin {
+            font-family: roboto;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        } */
+
+.lin li a {
+    border-radius: 10px;
+    color: #0f172a;
+    gap: 10px;
+}
+
+.lin li button {
+    border-radius: 10px;
+    color: #0f172a;
+}
+
+.lin li a:visited {
+    color: inherit;
+}
+
+.lin li button:hover {
+    color: wheat;
+}
+
+.lin li:hover {
+    background-color: #0f172a;
+    color: wheat;
+    border-radius: 10px;
+}
+
+.job {
+    background: #0f172a;
+}
+
+.job li {
+    color: wheat;
+}
+
+.job li:hover {
+    color: #0f172a;
+    /* background-color: wheat; */
+}
+
+.con {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgs {
+    transform: translatex(40px);
+    box-shadow: 0px 0px 30px 1px black;
+    border-radius: 250px 350px 180px 300px;
+    height: 70vh;
+    /* width: 100%; */
+    background-image: url(../rozgar/ehmitrich-ZGY5Pp8Xxaw-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: sliderimager 10s ease-in-out infinite forwards;
+    /* margin-left: 20px */
+
+
+}
+
+@keyframes sliderimager {
+    0% {
+        background-image: url(../rozgar/romeo-leaupepe-su-a-n3yRXiCa_2s-unsplash.jpg);
+    }
+
+    25% {
+        background-image: url(../rozgar/samuel-cruz-t1pwbnk2lm0-unsplash.jpg);
+    }
+
+    50% {
+        background-image: url(../rozgar/h-co-30RYDogaobs-unsplash.jpg);
+    }
+
+    75% {
+        background-image: url(../rozgar/johnathan-macedo-4NQEvxW2_4w-unsplash.jpg);
+    }
+
+    100% {
+        background-image: url(../rozgar/sergei-gavrilov-gbd6PqRqGms-unsplash.jpg);
+    }
+}
+
+.tol {
+    background-color: wheat;
+}
+
+.sen {
+    /* border: 2px solid red; */
+    text-align: center;
+    height: 70vh;
+    padding: 20px;
+    align-content: center;
+}
+
+.sen p {
+    font-weight: bold;
+    font-size: 25px;
+    /* font-family: roboto; */
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+
+.crd {
+    background-color: #0f172a;
+    color: wheat;
+}
+
+.bn {
+    transform: translate(-20px, 20px);
+    color: #0f172a;
+
+}
+
+.bn1024 {
+    display: none;
+}
+
+.footer {
+    background-color: #0f172a;
+    /* height: 48vh; */
+}
+
+.footer img {
+    width: 180px;
+}
+
+.footer .p {
+    color: white;
+}
+
+.icon {
+    color: white;
+    text-decoration: none;
+}
+
+.hr {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.col {
+    max-width: 90%;
+    margin: 10px auto;
+}
+
+.footlink a {
+    text-decoration: none;
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .slider1024 {
+        display: flex;
+    }
+
+    .con {
+        display: none;
+    }
+
+    .col1024 {
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    .col1024 .col {
+        transform: translateX(40px);
+    }
+
+    .col1024 .copyright {
+        color: white;
+        transform: translate(-10px);
+    }
+
+    .bnlg .bn {
+        display: none;
+    }
+
+    .bn1024 {
+        transform: translateY(-35px);
+    }
+
+    .folusicon a {
+        transform: translateX(-35px);
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    /* .footer {
+                height: 40vh;
+            } */
+
+    .foot {
+        font-size: 14px;
+    }
+
+    /* .hr {
+                display: none;
+            } */
+
+    .col768 .icon {
+        /* color: #0f172a; */
+        font-size: 14px;
+    }
+
+    .folus {
+        transform: translateY(-10px);
+    }
+
+    .folusicon a {
+        transform: translate(-35px, -10px);
+    }
+
+    /* .footer .copyright {
+                color: #0f172a;
+            } */
+}
+
+@media (max-width: 426px) {
+    .navimg {
+        margin: 0 auto;
+    }
+
+    .lin {
+        margin: 0 auto;
+        background-color: none;
+    }
+
+    .lin li a:hover {
+        display: none;
+    }
+}
+
+/* number rtaing */
+.num {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.num .fortwo {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.line {
+    border-radius: 10px;
+    height: 10px;
+    /* width: 100%; */
+    background: #0f172a;
+    animation: lin 1.8s linear forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+@keyframes lin {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.cardd {
+    display: flex;
+}
+
+.cardd .fortwo {
+    display: flex;
+    /* width: 50%; */
+}
+
+@media (max-width: 740px) {
+    .cardd .fortwo {
+        display: grid;
+    }
+
+    .num .fortwo {
+        flex-direction: column;
+    }
+
+    .col1024 p {
+        color: wheat;
+    }
+
+    .guidmain {
+        /* display: grid; */
+        flex-direction: column;
+    }
+}
+
+.guidmain {
+    display: flex;
+}
+
+
+
+/* new one */
+.hero {
+    /* background: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)), url('../rozgar/ehmitrich-ZGY5Pp8Xxaw-unsplash.jpg') center/cover no-repeat; */
+    color: #0f172a;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hire-butten {
+    background-color: #0f172a;
+    color: wheat;
+}
+
+.hire-butten:hover {
+    border: 2px solid #0f172a;
+    background: none;
+    color: #0f172a;
+}
+
+.nav-button li a {
+    color: #0f172a;
+}
+
+.stats h2 {
+    color: #0f172a;
+    font-weight: bold;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.crd-body {
+    background: none;
+    box-shadow: 5px 5px 8px #0f172a;
+    /* background-color: linear-gradient(to bottom #0f172a 90%); */
+}
+
+/* Optional: make cards slightly hoverable */
+.testimonials .card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+.formsubmit {
+    background-color: wheat;
+    border-radius: 5px;
+}
+
+.formsubmit:hover {
+    border: 2px solid wheat;
+    background-color: #0f172a;
+    color: wheat;
+}
+
+.comment {
+    background-color: wheat;
+    border-radius: 5px;
+
+}

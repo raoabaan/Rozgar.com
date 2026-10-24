@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozgar.com - Employees</title>
+    <link rel="shortcut icon" href="../favicol/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../WEB/css/melodrama.css"> -->
+
+    <link rel="stylesheet" href="../assets/employee.css">
+
+</head>
+
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg shadow-lg">
+        <div class="container mt-2">
+            <a class="navbar-brand fw-bold" href="../index.html"><img src="../rozgar/rozgar urdu bg remove.png"
+                    width="150" height="auto" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-button">
+                    <li class="nav-item fs-5"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item fs-5"><a class="nav-link" href="About.html">About</a></li>
+                    <li class="nav-item fs-5"><a class="nav-link active" href="employee.html">Employees</a></li>
+                    <li class="nav-item fs-5"><a class="nav-link" href="account.html">Account</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search & Filter -->
+    <div class="container my-3 text-center">
+        <h2 class="mt-5 mb-4">Browse Trusted Professionals</h2>
+        <div class="row g-3 justify-content-center mb-4">
+
+            <!-- Search Bar -->
+            <div class="col-md-8">
+                <input type="text" id="employeeSearch" class="form-control p-2"
+                    placeholder="Search employees by name, role, or skills...">
+            </div>
+        </div>
+
+        <!-- 🌟 Filter Toolbar -->
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+
+            <!-- Profession Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="professionBtn" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Profession
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="professionBtn">
+                    <li><a class="dropdown-item profession-option" data-value="all" href="#">All</a></li>
+                    <li><a class="dropdown-item profession-option" data-value="carpenter" href="#">Carpenter</a></li>
+                    <li><a class="dropdown-item profession-option" data-value="director" href="#">Director</a></li>
+                    <li><a class="dropdown-item profession-option" data-value="mechanic" href="#">Mechanic</a></li>
+                    <li><a class="dropdown-item profession-option" data-value="painter" href="#">Painter</a></li>
+                    <li><a class="dropdown-item profession-option" data-value="electrician" href="#">Electrician</a>
+                    </li>
+                    <li><a class="dropdown-item profession-option" data-value="computer" href="#">Computer
+                            Specialist</a></li>
+                </ul>
+            </div>
+
+            <!-- Availability Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="availabilityBtn"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Availability
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="availabilityBtn">
+                    <li><a class="dropdown-item availability-option" data-value="all" href="#">All</a></li>
+                    <li><a class="dropdown-item availability-option" data-value="available" href="#">Available</a></li>
+                    <li><a class="dropdown-item availability-option" data-value="busy" href="#">Busy</a></li>
+                </ul>
+            </div>
+
+            <!-- Rate Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="rateBtn" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Rate Range
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="rateBtn">
+                    <li><a class="dropdown-item rate-option" data-value="all" href="#">All</a></li>
+                    <li><a class="dropdown-item rate-option" data-value="low" href="#">Below 1000 PKR/hr</a></li>
+                    <li><a class="dropdown-item rate-option" data-value="medium" href="#">1000–2000 PKR/hr</a></li>
+                    <li><a class="dropdown-item rate-option" data-value="high" href="#">Above 2000 PKR/hr</a></li>
+                </ul>
+            </div>
+
+            <!-- Location Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="locationBtn" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Location
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="locationBtn">
+                    <li><a class="dropdown-item location-option" data-value="all" href="#">All</a></li>
+                    <li><a class="dropdown-item location-option" data-value="lahore" href="#">Lahore</a></li>
+                    <li><a class="dropdown-item location-option" data-value="karachi" href="#">Karachi</a></li>
+                    <li><a class="dropdown-item location-option" data-value="hyderabad" href="#">Hyderabad</a></li>
+                    <li><a class="dropdown-item location-option" data-value="tando jam" href="#">Tando Jam</a></li>
+                    <li><a class="dropdown-item location-option" data-value="islamabad" href="#">Islamabad</a></li>
+                    <li><a class="dropdown-item location-option" data-value="mirpur khass" href="#">Mirpur Khass</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Near Me Button -->
+            <button class="btn btn-dark" id="nearMeBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                    class="bi bi-geo-alt-fill mb-1" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                </svg>
+                Near Me
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- Employees Grid -->
+    <div class="container py-5">
+        <div class="row g-4" id="employee-list">
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="1" data-category="carpenter" data-location="Lahore"
+                data-rate="1500" data-availability="available">
+                <div class="card employee-card text-center"
+                    data-bio="Full-stack developer with expertise in modern web technologies."
+                    data-skills="JavaScript, React, Node.js, MongoDB" data-experience="5+ years in software development"
+                    data-projects="Built an e-commerce platform, a portfolio generator, and a chat application."
+                    data-ratings='{
+                            "overall": 4.8,
+                            "reviews": 32,
+                            "categories": {
+                                "Communication": 5,
+                                "Work Quality": 4.5,
+                                "Punctuality": 5,
+                                "Professionalism": 4.4
+                            },
+                            "feedbacks": [
+                                {"name": "Ali Khan", "comment": "Very skilled and professional!", "stars": 5},
+                                {"name": "Hina", "comment": "Delivered slightly late but great work.", "stars": 4}
+                            ]
+                        }'>
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="../rozgar/IMG_9262_transfer_2025-08-05_123604@-125292748 - Copy.HEIC" alt="Employee">
+                        <h5 class="card-title mt-3">Rao Abaan</h5>
+                        <p class="text-muted mb-1">Carpenter | 5 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 4.8 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Lahore</p>
+                        <span class="badge-available">Available</span>
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="2" data-category="painter" data-location="Karachi"
+                data-rate="2000" data-availability="busy">
+                <div class="card employee-card text-center"
+                    data-bio="Full-stack developer with expertise in modern web technologies."
+                    data-skills="JavaScript, React, Node.js, MongoDB" data-experience="5+ years in software development"
+                    data-projects="Built an e-commerce platform, a portfolio generator, and a chat application."
+                    data-ratings='{
+                            "overall": 4.8,
+                            "reviews": 32,
+                            "categories": {
+                                "Communication": 5,
+                                "Work Quality": 4.5,
+                                "Punctuality": 5,
+                                "Professionalism": 4.4
+                            },
+                            "feedbacks": [
+                                {"name": "Ali Khan", "comment": "Very skilled and professional!", "stars": 5},
+                                {"name": "Hina", "comment": "Delivered slightly late but great work.", "stars": 4}
+                            ]
+                        }'>
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="../rozgar/" alt="Employee">
+                        <h5 class="card-title mt-3">Ali Hyder</h5>
+                        <p class="text-muted mb-1">Painter | 3 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 4.6 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Karachi</p>
+                        <span class="badge-busy">Busy</span>
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm disabled">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm disabled">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="2" data-category="electrician"
+                data-location="Islamabad">
+                <div class="card employee-card text-center">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="../rozgar/ahmed.jpg" alt="Employee">
+                        <h5 class="card-title mt-3">Ahmed Raza</h5>
+                        <p class="text-muted mb-1">Electrician | 7 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 4.9 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Islamabad</p>
+                        <span class="badge-available">Available</span>
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="1" data-category="computer" data-location="Hyderabad">
+                <div class="card employee-card text-center">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="../rozgar/ali.jpg" alt="Employee">
+                        <h5 class="card-title mt-3">Ali Muhammad</h5>
+                        <p class="text-muted mb-1">Computer Specialist | 7 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 4.9 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Hyderabad</p>
+                        <span class="badge-available">Available</span>
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="1" data-category="director" data-location="tando jam">
+                <div class="card employee-card text-center">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="../rozgar/tabish bhai.jpg" alt="Employee">
+                        <h5 class="card-title mt-3">Tabish Rao</h5>
+                        <p class="text-muted mb-1">Director | 8 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 5.0 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Tando Jam</p>
+                        <span class="badge-available">Available</span>
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="2" data-category="mechanic"
+                data-location="mirpur khass">
+                <div class="card employee-card text-center">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="../rozgar/Screenshot_20250926-195514.jpg" alt="Employee">
+                        <h5 class="card-title mt-3">Rao Ali Rajput</h5>
+                        <p class="text-muted mb-1">Mechanic | 2 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 4.9 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Mirpur Khass</p>
+                        <span class="badge-available">Available</span>
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Card -->
+            <div class="col-md-4 employee-card-wrap" data-page="3" data-category="computer" data-location="Tando Jam">
+                <div class="card employee-card text-center">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img src="#" alt="Employee">
+                        <h5 class="card-title mt-3">Bilal</h5>
+                        <p class="text-muted mb-1">Computer Specialist | 2 yrs experience</p>
+                        <p class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> 4.9 • <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg> Tando Jam </p>
+                        <span class="badge-busy">Busy</span>
+
+                        <div class="mt-3">
+                            <a href="#" class="btn profile-button btn-sm disabled">View Profile</a>
+                            <!-- <a href="#" class="btn hire-button btn-sm disabled">Hire Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="container mb-5">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center custom-pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" data-page="prev">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" data-page="1">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" data-page="2">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" data-page="3">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" data-page="next">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center fot text-white lh-1 py-4 ">
+        <div class="container">
+            <p>&copy; 2025 Rozgar.com - All rights reserved.</p>
+            <p><a href="" class="text-white">Privacy Policy</a> &nbsp;|&nbsp; <a href="" class="text-white">Terms of
+                    Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Fatching data --> <!-- for pop-up -->
+    <!-- Overlay Modal -->
+    <div class="overlay" id="employeeOverlay">
+        <div class="employee-modal" id="employeeModal">
+            <span class="close-btn" id="closeModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg></span>
+            <div class="row g-4 align-items-center">
+
+                <!-- Left: Employee Image -->
+                <div class="col-md-4 text-center">
+                    <img id="modalImg" src="" alt="Employee">
+                    <h3 id="modalName" class="mt-3"></h3>
+                    <p id="modalProfession" class="text-muted"></p>
+                </div>
+
+                <!-- Right: Details + Hire Form -->
+                <div class="col-md-8">
+                    <!-- Tabs -->
+                    <div id="employeeDetails">
+                        <ul class="nav nav-tabs" id="employeeTab" role="tablist">
+                            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab"
+                                    href="#aboutTab">About</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#skillsTab">Skills</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
+                                    href="#experienceTab">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
+                                    href="#projectsTab">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#ratingsTab">Ratings</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content mt-3">
+                            <div class="tab-pane fade show active" id="aboutTab">
+                                <p id="modalBio"></p>
+                            </div>
+                            <div class="tab-pane fade" id="skillsTab">
+                                <p><strong>Skills:</strong> <span id="modalSkills"></span></p>
+                            </div>
+                            <div class="tab-pane fade" id="experienceTab">
+                                <p><strong>Experience:</strong> <span id="modalExperience"></span></p>
+                            </div>
+                            <div class="tab-pane fade" id="projectsTab">
+                                <p id="modalProjects">No projects listed.</p>
+                            </div>
+                            <div class="tab-pane fade" id="ratingsTab">
+                                <p id="modalRatings">No ratings listed.</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-4">
+                            <button class="btn hire-button-pop me-2" id="showHireForm">Hire Now</button>
+                            <!-- <button class="btn btn-outline-secondary">View Profile</button> -->
+                        </div>
+                    </div>
+
+                    <!-- Hire Form (hidden by default) -->
+                    <div id="hireForm" style="display:none;">
+                        <button class="btn btn-link p-0 mb-3" id="backToDetails">
+                            ← Back to Details
+                        </button>
+                        <h5>Hire <span id="hireEmployeeName"></span></h5>
+                        <form id="hireNowForm">
+                            <div class="mb-3">
+                                <label class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="hirerName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Your Email</label>
+                                <input type="email" class="form-control" id="hirerEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" id="hirerMessage" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Send Hire Request</button>
+                        </form>
+                        <div class="alert alert-success mt-3" id="hireSuccess" style="display:none;">
+                            ✅ Your hire request has been sent!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('.employee-card-wrap').forEach(card => {
+                if (card.getAttribute('data-page') === page.toString()) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update pagination active state
+            document.querySelectorAll('.pagination .page-item').forEach(item => item.classList.remove('active'));
+            document.querySelector(`.pagination .page-link[data-page='${page}']`).parentElement.classList.add('active');
+        }
+
+        // Default show page 1
+        let currentPage = 1;
+        showPage(currentPage);
+
+        // Handle pagination clicks
+        document.querySelectorAll('.pagination .page-link').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                let page = this.getAttribute('data-page');
+                if (page === 'prev' && currentPage > 1) {
+                    currentPage--;
+                } else if (page === 'next' && currentPage < 3) { // adjust max page here
+                    currentPage++;
+                } else if (!isNaN(page)) {
+                    currentPage = parseInt(page);
+                }
+                showPage(currentPage);
+            });
+        });
+
+
+
+
+        // === COMBINED SMART FILTER SYSTEM ===
+
+        // Helper: stores current filter selections
+        const filters = {
+            profession: 'all',
+            availability: 'all',
+            rate: 'all',
+            location: 'all',
+            nearMe: false
+        };
+
+        // Main Filter Function
+        function applyAllFilters() {
+            document.querySelectorAll('.employee-card-wrap').forEach(card => {
+                const category = card.dataset.category?.toLowerCase();
+                const cardAvailability = card.dataset.availability?.toLowerCase();
+                const cardRate = parseInt(card.dataset.rate);
+                const cardLocation = card.dataset.location?.toLowerCase();
+
+                let visible = true;
+
+                // Profession
+                if (filters.profession !== 'all' && category !== filters.profession) visible = false;
+
+                // Availability
+                if (filters.availability !== 'all' && cardAvailability !== filters.availability) visible = false;
+
+                // Rate
+                if (filters.rate !== 'all') {
+                    if (filters.rate === 'low' && cardRate >= 1000) visible = false;
+                    if (filters.rate === 'medium' && (cardRate < 1000 || cardRate > 2000)) visible = false;
+                    if (filters.rate === 'high' && cardRate <= 2000) visible = false;
+                }
+
+                // Location
+                if (filters.location !== 'all' && cardLocation !== filters.location) visible = false;
+
+                // Near Me (for demo: show Lahore only)
+                if (filters.nearMe && cardLocation !== 'lahore') visible = false;
+
+                // Apply visibility
+                card.style.display = visible ? 'block' : 'none';
+            });
+        }
+
+        // === Attach Listeners ===
+
+
+        // === 🌟 Dropdown Filters with Dynamic Text ===
+
+        // Helper to update button text & filter object
+        function setupDropdownFilter(className, buttonId, filterKey) {
+            document.querySelectorAll(`.${className}`).forEach(item => {
+                item.addEventListener('click', e => {
+                    e.preventDefault();
+                    const selectedText = item.textContent.trim();
+                    const selectedValue = item.dataset.value.toLowerCase();
+
+                    // Update button label
+                    const button = document.getElementById(buttonId);
+                    button.textContent = selectedValue === 'all'
+                        ? buttonId.replace('Btn', '').replace(/([A-Z])/g, ' $1').trim() // reset to original title
+                        : selectedText;
+
+                    // Update filter and reapply
+                    filters[filterKey] = selectedValue;
+                    applyAllFilters();
+
+                    // Close dropdown (Bootstrap 5)
+                    const dropdown = bootstrap.Dropdown.getInstance(button);
+                    if (dropdown) dropdown.hide();
+                });
+            });
+        }
+
+        // Initialize each dropdown
+        setupDropdownFilter('profession-option', 'professionBtn', 'profession');
+        setupDropdownFilter('availability-option', 'availabilityBtn', 'availability');
+        setupDropdownFilter('rate-option', 'rateBtn', 'rate');
+        setupDropdownFilter('location-option', 'locationBtn', 'location');
+
+
+
+
+        // For POP-UP
+        const overlay = document.getElementById("employeeOverlay");
+        const modalImg = document.getElementById("modalImg");
+        const modalName = document.getElementById("modalName");
+        const modalProfession = document.getElementById("modalProfession");
+        const modalBio = document.getElementById("modalBio");
+        const modalSkills = document.getElementById("modalSkills");
+        const modalExperience = document.getElementById("modalExperience");
+        const modalProjects = document.getElementById("modalProjects");
+        const modalRatings = document.getElementById("modalRatings");
+        const closeModal = document.getElementById("closeModal");
+
+        document.querySelectorAll(".employee-card").forEach(card => {
+            card.addEventListener("click", () => {
+                modalImg.src = card.querySelector("img").src;
+                modalName.textContent = card.querySelector(".card-title").textContent;
+                modalProfession.textContent = card.querySelector(".text-muted").textContent;
+
+                // Populate from data-* attributes
+                modalBio.textContent = card.dataset.bio || "No bio available.";
+                modalSkills.textContent = card.dataset.skills || "N/A";
+                modalExperience.textContent = card.dataset.experience || "N/A";
+                modalProjects.textContent = card.dataset.projects || "No projects listed.";
+                modalRatings.textContent = card.dataset.ratings || "No ratings listed.";
+
+                overlay.style.display = "flex";
+            });
+        });
+
+        closeModal.addEventListener("click", () => {
+            overlay.style.display = "none";
+        });
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) overlay.style.display = "none";
+        });
+
+        // 
+        function generateStars(num) {
+            const fullStar = '⭐';
+            const emptyStar = '☆';
+            const rounded = Math.round(num);
+            return fullStar.repeat(rounded) + emptyStar.repeat(5 - rounded);
+        }
+
+        document.querySelectorAll(".employee-card").forEach(card => {
+            card.addEventListener("click", () => {
+                const ratingsData = card.dataset.ratings ? JSON.parse(card.dataset.ratings) : null;
+                const modalRatings = document.getElementById("modalRatings");
+
+                if (!ratingsData) {
+                    modalRatings.innerHTML = `<p>No ratings available.</p>`;
+                    return;
+                }
+
+                // Build the HTML dynamically
+                let html = `
+            <h5>Overall Rating: ⭐ ${ratingsData.overall} / 5</h5>
+            <p><strong>Based on:</strong> ${ratingsData.reviews} reviews</p>
+            <div class="mt-2">`;
+
+                for (const [category, value] of Object.entries(ratingsData.categories)) {
+                    html += `<p>${category}: ${generateStars(value)} (${value.toFixed(1)})</p>`;
+                }
+
+                html += `</div><hr><div class="reviews">`;
+
+                ratingsData.feedbacks.forEach(r => {
+                    html += `<p><strong>${r.name}:</strong> "${r.comment}" ${generateStars(r.stars)}</p>`;
+                });
+
+                // html += `</div><button class="btn btn-outline-dark btn-sm mt-3">Add Your Review</button>`;
+                modalRatings.innerHTML = html;
+            });
+        });
+        // 
+
+
+
+        // Search functionality
+        document.getElementById("employeeSearch").addEventListener("keyup", function () {
+            let query = this.value.toLowerCase();
+            document.querySelectorAll(".employee-card").forEach(card => {
+                let name = card.querySelector(".card-title").textContent.toLowerCase();
+                let role = card.querySelector(".text-muted").textContent.toLowerCase();
+                let skills = (card.dataset.skills || "").toLowerCase();
+
+                if (name.includes(query) || role.includes(query) || skills.includes(query)) {
+                    card.parentElement.style.display = "block"; // show card column
+                } else {
+                    card.parentElement.style.display = "none"; // hide card column
+                }
+            });
+        });
+
+
+
+
+
+
+
+        // hire
+        const overla = document.getElementById("employeeOverlay");
+        const employeeDetails = document.getElementById("employeeDetails");
+        const hireForm = document.getElementById("hireForm");
+        const hireEmployeeName = document.getElementById("hireEmployeeName");
+        const hireSuccess = document.getElementById("hireSuccess");
+
+        document.querySelectorAll(".employee-card").forEach(card => {
+            card.addEventListener("click", () => {
+                // Fill modal with employee data
+                modalImg.src = card.querySelector("img").src;
+                modalName.textContent = card.querySelector(".card-title").textContent;
+                modalProfession.textContent = card.querySelector(".text-muted").textContent;
+                modalBio.textContent = card.dataset.bio || "No bio available.";
+                modalSkills.textContent = card.dataset.skills || "N/A";
+                modalExperience.textContent = card.dataset.experience || "N/A";
+                modalProjects.textContent = card.dataset.projects || "No projects listed.";
+
+                // Reset view to details only
+                employeeDetails.style.display = "block";
+                hireForm.style.display = "none";
+                hireSuccess.style.display = "none";
+                overla.style.display = "flex";
+            });
+        });
+
+        // Show hire form
+        document.getElementById("showHireForm").addEventListener("click", () => {
+            employeeDetails.style.display = "none";
+            hireForm.style.display = "block";
+            hireEmployeeName.textContent = modalName.textContent;
+        });
+
+        // Back to details
+        document.getElementById("backToDetails").addEventListener("click", () => {
+            hireForm.style.display = "none";
+            employeeDetails.style.display = "block";
+        });
+
+        // Handle hire form submit
+        document.getElementById("hireNowForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            hireSuccess.style.display = "block";
+            this.reset();
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
